@@ -27,19 +27,24 @@ class Login extends  Component {
 		if (this.state.hasLoggedIn) {
 			return <Redirect to='/' />;
 		}
+		var loginActionClass = 'login-action';
+		if (this.state.selectedUser !== "none") {
+			loginActionClass += " image-showing";
+		}
 		return (
-			<div className='login-container'>
-				{this.state.selectedUser !== "none" && 
-				<div>
+			<div className='login-container'>				
+				<div className='login-image'>
+					{this.state.selectedUser !== "none" && 
 					<img src={this.props.usersComplete[this.state.selectedUser].avatarURL} 
 						width='150' 
 						height='auto' 
 						alt={`Avatar of ${this.props.usersComplete[this.state.selectedUser].avatarURL}`}/>
+					}
 				</div>
-				}
-				<div>
+
+				<div className={loginActionClass}>
 					<select className='login-user-select' onChange={this.selectUser.bind(this)} value={this.state.selectedUser}>
-					<option key='none' value='none'>No one is currently logged in</option>
+					<option key='none' value='none'>Select a user</option>
 					{this.props.users.length > 0 && (this.props.users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>)))}
 					</select>
 					<input className='login-button' type='button' value='Log In!' onClick={this.logInUser.bind(this)} />

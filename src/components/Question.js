@@ -123,7 +123,7 @@ class Question extends Component {
 									<div className='question-stat'>{optionOnePercentageResultText}</div>
 								</div>
 								{optionOneAnswered && (
-									<span>You answered this one!</span>)
+									<span>You chose this option!</span>)
 								}						
 							</div>
 							<div className={!optionOneAnswered ? 'answered-question-data chosen-answer': 'answered-question-data'}>
@@ -133,7 +133,7 @@ class Question extends Component {
 									<div className='question-stat'>{optionTwoPercentageResultText}</div>
 								</div>
 								{!optionOneAnswered && (
-									<span>You answered this one!</span>)
+									<span>You chose this option!</span>)
 								}
 							</div>
 						</div>)
