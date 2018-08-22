@@ -64,7 +64,7 @@ function mapStateToProps ({questions, users, authUser}) {
 	var questionKeys = Object.keys(questions);
 	var questionArr = questionKeys.map((key) => questions[key]);
 	return {
-		questions: questionArr.sort((question1, question2) => question1.timestamp-question2.timestamp),
+		questions: questionArr.sort((question1, question2) => question1.timestamp < question2.timestamp),
 		users,
 		authUser
 	}
