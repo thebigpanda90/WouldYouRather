@@ -51,13 +51,20 @@ class Question extends Component {
 		if (this.props.authUser === null) {
 			this.props.history.push('/logout/');
 		} else {
-			this.props.history.push('question/' + id);
+			this.props.history.push('questions/' + id);
 		}
 	}
 
 	render() {
 		if (this.props.authUser == null) {
-			return (<Redirect to='/logout' />);
+			let questionId = null;
+			if (this.props.selectedQuestion != null) {
+				questionId = this.props.selectedQuestion.id;
+			}
+			return (<Redirect to= {{
+				    pathname: "/logout",
+				    state: { referrer: '/questions/' + questionId }
+				  	}} />);
 		}
 		//show 404 page if question doesn't exist
 		if (this.props.selectedQuestion == null) {

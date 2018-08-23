@@ -42,6 +42,10 @@ class NewQuestion extends Component {
 
 	render() {
 		if (this.props.authUser == null) {
+			return (<Redirect to= {{
+				    pathname: "/logout",
+				    state: { referrer: '/add' }
+				  	}} />);
 			return (<Redirect to='/logout' />);
 		}
 		return (

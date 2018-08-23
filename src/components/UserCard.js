@@ -5,7 +5,10 @@ import { Redirect } from 'react-router-dom'
 class UserCard extends Component {
 	render() {
 		if (this.props.authUser == null) {
-			return (<Redirect to='/logout' />);
+			return (<Redirect to= {{
+				    pathname: "/logout",
+				    state: { referrer: '/leaderboard' }
+				  	}} />);
 		}
 		return (
 			<div className='user-container'>

@@ -24,7 +24,7 @@ class App extends Component {
           <Route path='/add' exact component={NewQuestion} />
           <Route path='/logout' exact component={Login} />
           <Route path='/' exact component={QuestionsContainer} />
-          <Route path='/question/:id' component={Question} />
+          <Route path='/questions/:id' component={Question} />
         </div>
       </BrowserRouter>
     );

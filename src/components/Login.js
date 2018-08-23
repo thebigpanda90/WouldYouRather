@@ -24,6 +24,9 @@ class Login extends  Component {
 	}
 
 	render() {
+		if (this.props.location.state && this.props.location.state.referrer && this.state.hasLoggedIn) {
+			return <Redirect to={this.props.location.state.referrer} />;
+		}
 		if (this.state.hasLoggedIn) {
 			return <Redirect to='/' />;
 		}
