@@ -57,13 +57,9 @@ class Question extends Component {
 
 	render() {
 		if (this.props.authUser == null) {
-			let questionId = null;
-			if (this.props.selectedQuestion != null) {
-				questionId = this.props.selectedQuestion.id;
-			}
 			return (<Redirect to= {{
 				    pathname: "/logout",
-				    state: { referrer: '/questions/' + questionId }
+				    state: { referrer: '/questions/' + this.props.questionId }
 				  	}} />);
 		}
 		//show 404 page if question doesn't exist
@@ -161,7 +157,8 @@ function mapStateToProps ({questions, users, authUser}, props) {
 		users,
 		selectedQuestion: questions[id],
 		authUser, 
-		liteView: props.liteView
+		liteView: props.liteView,
+		questionId: id
 	}
 }
 

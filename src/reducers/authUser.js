@@ -5,6 +5,6 @@ export default function authUser (state = {}, action) {
     case USER_LOGIN :
       return action.authUser;      
     default :
-      return state;
+      return null;
   }
 }

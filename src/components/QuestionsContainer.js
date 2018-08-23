@@ -41,7 +41,6 @@ class QuestionsContainer extends Component {
 		if (this.props.authUser == null) {
 			return (<Redirect to='/logout' />);
 		}
-		let tabButtonClass = 'tab-link'
 
 		return (
 			<div className='question-container'>

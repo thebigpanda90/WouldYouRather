@@ -45,8 +45,7 @@ class NewQuestion extends Component {
 			return (<Redirect to= {{
 				    pathname: "/logout",
 				    state: { referrer: '/add' }
-				  	}} />);
-			return (<Redirect to='/logout' />);
+				  	}} />);			
 		}
 		return (
 				<div className='new-question-container'>
